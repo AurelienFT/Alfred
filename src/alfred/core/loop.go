@@ -1,18 +1,33 @@
 package core
 
 import (
-	"bufio"
-	"fmt"
-	"os"
+	//"bufio"
+	//"os"
+	"github.com/rthornton128/goncurses"
+	"log"
 )
 
 // AlfredLoop is the main loop of Alfred
 func AlfredLoop() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Hello I'm Alfred your peronal assistant !\n")
-	for {
-		fmt.Print("What can I do for you ?\n")
-		text, _ := reader.ReadString('\n')
-		fmt.Print(text)
+	x := 0
+	stdscr, err := goncurses.Init()
+	if err != nil {
+		log.Fatal("Cannot open ncurses window : ", err)
 	}
+	defer goncurses.End()
+	msg := "Hello I'm Alfred your personnal assistant !"
+	row, _ := stdscr.MaxYX()
+	wind, _ := goncurses.NewWindow(2, len(msg), row-2, 0)
+	panel := goncurses.NewPanel(wind)
+	wind.Printf(msg)
+	for x >= 0 {
+		//need to add a tab with all wind and panel for do it for all messages and manage collision out of stdscr
+		panel.Move(row-x, 0)
+		goncurses.UpdatePanels()
+		goncurses.Update()
+		wind.GetChar()
+		x++
+	}
+	goncurses.End()
+
 }
