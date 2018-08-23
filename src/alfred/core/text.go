@@ -3,6 +3,7 @@ package core
 import (
 
 	"github.com/rthornton128/goncurses"
+	"fmt"
 
 )
 
@@ -11,23 +12,24 @@ type Text struct {
 	panel *goncurses.Panel
 	msg string
 }
+var texts [21]*Text
+var text_actual = 0
 
-var texts = make([]*Text, 16)
+func get_row_value() int {
+	return row
+}
 
-
-func newText(msg string, x int, y int) {
+func NewText(msg string, x int, y int) {
+	fmt.Printf("%d\n", row)
 	wind, _ := goncurses.NewWindow(1, len(msg), x, y)
 	panel := goncurses.NewPanel(wind)
 	wind.Printf(msg)
-	texts = append(texts, &Text{window: wind, panel: panel, msg: msg})
+	texts[text_actual] = &Text{window: wind, panel: panel, msg: msg}
+	text_actual++
 }
 
-func (class *Text) moveUp(x int) {
-	class.panel.Move(0, x)
-}
-
-func moveUpText() {
+func MoveUpText(x int) {
 	for text := range texts {
-		texts[text].moveUp(1)
+		texts[text].panel.Move(x, 0)
 	}
 }
