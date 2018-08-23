@@ -9,7 +9,7 @@ import (
 
 // AlfredLoop is the main loop of Alfred
 func AlfredLoop() {
-	x := 0
+	x := 3
 	stdscr, err := goncurses.Init()
 	if err != nil {
 		log.Fatal("Cannot open ncurses window : ", err)
@@ -17,7 +17,7 @@ func AlfredLoop() {
 	defer goncurses.End()
 	msg := "Hello I'm Alfred your personnal assistant !"
 	row, _ := stdscr.MaxYX()
-	wind, _ := goncurses.NewWindow(2, len(msg), row-2, 0)
+	wind, _ := goncurses.NewWindow(1, len(msg), row-3, 0)
 	panel := goncurses.NewPanel(wind)
 	wind.Printf(msg)
 	for x >= 0 {
@@ -25,7 +25,7 @@ func AlfredLoop() {
 		panel.Move(row-x, 0)
 		goncurses.UpdatePanels()
 		goncurses.Update()
-		wind.GetChar()
+		stdscr.GetChar()
 		x++
 	}
 	goncurses.End()
