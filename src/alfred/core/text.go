@@ -1,12 +1,6 @@
 package core
 
-import (
-
-	"github.com/rthornton128/goncurses"
-
-)
-
-type Text struct {
+/*type Text struct {
 	window *goncurses.Window
 	panel *goncurses.Panel
 	msg string
@@ -30,4 +24,4 @@ func MoveUpText(x int) {
 		texts[count].panel.Move(texts[count].x_text, 0)
 		count--
 	}
-}
+}*/

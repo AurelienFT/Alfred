@@ -2,23 +2,23 @@ package core
 
 import (
 	"fmt"
-	//"bufio"
-	//"os"
-	"github.com/rthornton128/goncurses"
-	"log"
+	"bufio"
+	"os"
 )
 
-var row int
-var col int
-func B2S(bs []int) string {
-	b := make([]byte, len(bs))
-	for i, v := range bs {
-		b[i] = byte(v)
-	}
-	return string(b)
-}
+
 // AlfredLoop is the main loop of Alfred
-func AlfredLoop() {
+func ALfredLoop() {
+	for {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Enter text: ")
+		text, _ := reader.ReadString('\n')
+		fmt.Print(text)
+	}
+}
+
+// AlfredLoop is the main loop of Alfred with ncurses (canceled at this moment)
+/*func AlfredLoop() {
 	x := 1
 	stdscr, err := goncurses.Init()
 	if err != nil {
@@ -59,4 +59,4 @@ func AlfredLoop() {
 	}
 	goncurses.End()
 
-}
+}*/
