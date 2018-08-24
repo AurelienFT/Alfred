@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
+	data := core.CreateDataTraining()
+	core.OrganizeData(data)
 	core.AlfredLoop()
 }

@@ -8,7 +8,7 @@ import (
 
 
 // AlfredLoop is the main loop of Alfred
-func ALfredLoop() {
+func AlfredLoop() {
 	for {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Enter text: ")
