@@ -80,7 +80,6 @@ func TrainData() {
 	data := CreateDataTraining()
 	OrganizeData(data)
 	train(training, output, 20, 0.1, 100000, false, 0.2)
-
 }
 
 // OrganizeData organize data of data traning
