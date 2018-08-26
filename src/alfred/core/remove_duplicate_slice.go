@@ -1,5 +1,6 @@
 package core
 
+// RemoveDuplicatesFromSlice remove all the duplicates in a slice of strings
 func RemoveDuplicatesFromSlice(s []string) []string {
 	m := make(map[string]bool)
 	for _, item := range s {
@@ -9,7 +10,7 @@ func RemoveDuplicatesFromSlice(s []string) []string {
 	}
 
 	var result []string
-	for item, _ := range m {
+	for item := range m {
 		result = append(result, item)
 	}
 	return result
