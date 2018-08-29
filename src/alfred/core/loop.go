@@ -1,19 +1,18 @@
 package core
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 )
-
 
 // AlfredLoop is the main loop of Alfred
 func AlfredLoop() {
 	for {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Enter text: ")
-		text, _ := reader.ReadString('\n')
-		fmt.Print(text)
+		userInput, _ := reader.ReadString('\n')
+		manageInput(userInput)
 	}
 }
 
