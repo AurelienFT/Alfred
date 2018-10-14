@@ -1,0 +1,9 @@
+[package]
+name = "alfred"
+version = "0.1.0"
+authors = ["Aurélien Foucault"]
+
+[dependencies]
+log = "0.4"
+env_logger = "0.5.13"
+text_io = "0.1.7"

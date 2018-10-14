@@ -70,8 +70,8 @@ def train(hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_perce
         output.append(output_row)
     X = np.array(training)
     y = np.array(output)
-    print ("Training with %s neurons, alpha:%s, dropout:%s %s" % (hidden_neurons, str(alpha), dropout, dropout_percent if dropout else '') )
-    print ("Input matrix: %sx%s    Output matrix: %sx%s" % (len(X),len(X[0]),1, len(classes)) )
+    #print ("Training with %s neurons, alpha:%s, dropout:%s %s" % (hidden_neurons, str(alpha), dropout, dropout_percent if dropout else '') )
+    #print ("Input matrix: %sx%s    Output matrix: %sx%s" % (len(X),len(X[0]),1, len(classes)) )
     np.random.seed(1)
 
     last_mean_error = 1
@@ -102,10 +102,10 @@ def train(hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_perce
         if (j% 10000) == 0 and j > 5000:
             # if this 10k iteration's error is greater than the last iteration, break out
             if np.mean(np.abs(layer_2_error)) < last_mean_error:
-                print ("delta after "+str(j)+" iterations:" + str(np.mean(np.abs(layer_2_error))) )
+                #print ("delta after "+str(j)+" iterations:" + str(np.mean(np.abs(layer_2_error))) )
                 last_mean_error = np.mean(np.abs(layer_2_error))
             else:
-                print ("break:", np.mean(np.abs(layer_2_error)), ">", last_mean_error )
+                #print ("break:", np.mean(np.abs(layer_2_error)), ">", last_mean_error )
                 break
                 
         # in what direction is the target value?
@@ -144,10 +144,10 @@ def train(hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_perce
 
     with open(synapse_file, 'w') as outfile:
         json.dump(synapse, outfile, indent=4, sort_keys=True)
-    print ("saved synapses to:", synapse_file)
+    #print ("saved synapses to:", synapse_file)
 
     elapsed_time = time.time() - start_time
-    print ("processing time:", elapsed_time, "seconds")
+    #print ("processing time:", elapsed_time, "seconds")
 
 train(hidden_neurons=20, alpha=0.1, epochs=100000, dropout=False, dropout_percent=0.2)
 
