@@ -1,6 +1,6 @@
 # Alfred
 
-This project aims at create a bot back-end with an front-end disponible on differents services like Facebook Messenger, Google Home etc... We want to create build for Windows and Linux to have a personnal assistant. For the moment we need to decide is we gonna code it in Rust but anyway in a perfect world we create bindings that allow everyone to create their back-end and the bot will have a core that manage output on all services.
+This project aims to create a back-end bot with front-end available on differents services like Facebook Messenger, Google Home etc... We want to create builds for Windows and Linux to have a personnal assistant. For the moment the main language is Rust but in a perfect world we could create bindings that would allow everyone to create their own back-end and the bot could have a core that manage output on all services.
 
 # Prototype :
 
