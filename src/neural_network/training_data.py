@@ -3,6 +3,8 @@ training_data.append({"class":"greeting", "sentence":"how are you?"})
 training_data.append({"class":"greeting", "sentence":"how is your day?"})
 training_data.append({"class":"greeting", "sentence":"good day"})
 training_data.append({"class":"greeting", "sentence":"how is it going today?"})
+training_data.append({"class":"greeting", "sentence":"hi there"})
+training_data.append({"class":"greeting", "sentence":"hello mate"})
 
 training_data.append({"class":"goodbye", "sentence":"have a nice day"})
 training_data.append({"class":"goodbye", "sentence":"see you later"})

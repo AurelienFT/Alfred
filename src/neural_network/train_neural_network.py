@@ -148,6 +148,3 @@ def train(hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout_perce
 
     elapsed_time = time.time() - start_time
     #print ("processing time:", elapsed_time, "seconds")
-
-train(hidden_neurons=20, alpha=0.1, epochs=100000, dropout=False, dropout_percent=0.2)
-
