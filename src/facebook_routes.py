@@ -8,8 +8,8 @@ def receive_message():
         return verify_fb_token(token_sent)
     else:
         # get whatever message a user sent the bot
-       output = request.get_json()
-       for event in output['entry']:
+        output = request.get_json()
+        for event in output['entry']:
           messaging = event['messaging']
           for message in messaging:
             if message.get('message'):
