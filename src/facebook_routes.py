@@ -22,6 +22,7 @@ def receive_message():
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()
                     send_message(recipient_id, response_sent_nontext)
+        return "Message Processed"
 
 @app.route("/ping", methods=['GET', 'POST'])
 def ping():
