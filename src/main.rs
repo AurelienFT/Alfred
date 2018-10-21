@@ -1,12 +1,20 @@
+#![feature(plugin)]
+#![plugin(rocket_codegen)]
+
+extern crate rocket;
 use std::path::Path;
 #[macro_use]
 extern crate log;
 extern crate env_logger;
 extern crate text_io;
+mod display_message;
+mod initialize_bot;
 
 use std::io;
 use std::io::Write;
 use std::process::Command;
+use display_message::display_message;
+use initialize_bot::initialize_bot;
 
 fn main() {
     env_logger::init();
@@ -23,6 +31,7 @@ fn main() {
     } else {
         debug!("Bot already trained");
     }
+    initialize_bot();
     loop {
         print!("Enter your sentence : ");
         let mut line = String::new();
@@ -34,7 +43,8 @@ fn main() {
             .args(&["src/neural_network/classify.py", &line])
             .output()
             .expect("failed to execute process");
-        let word_class = String::from_utf8_lossy(&output.stdout);
+        let word_class = String::from_utf8_lossy(&output.stdout).to_string();
         debug!("The class of this word is : {}", word_class);
+        display_message(word_class);
     }
 }
