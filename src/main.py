@@ -11,11 +11,11 @@ def main():
         train(hidden_neurons=20, alpha=0.1, epochs=100000, dropout=False, dropout_percent=0.2)
     if len(sys.argv) < 2:
         alfred = Alfred("cli")
+	while True:
+            data = raw_input("Ask me anything: ")
+            print(classify(data))
     else:
         alfred = Alfred(sys.argv[1])
-    while True:
-        data = raw_input("Ask me anything: ")
-        classify(data)
     return
 
 main()

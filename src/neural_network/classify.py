@@ -19,5 +19,4 @@ def classify(sentence, show_details=False):
     results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD ] 
     results.sort(key=lambda x: x[1], reverse=True) 
     return_results =[[classes[r[0]],r[1]] for r in results]
-    print ("%s" % (return_results[0][0]))
-    return return_results
+    return return_results[0][0]
