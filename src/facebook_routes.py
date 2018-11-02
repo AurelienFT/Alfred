@@ -9,6 +9,7 @@ def receive_message():
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
     else:
+        print ("test")
         # get whatever message a user sent the bot
         #output = request.get_json()
         #for event in output['entry']:
