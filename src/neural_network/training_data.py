@@ -18,3 +18,7 @@ training_data.append({"class":"music", "sentence":"Can you play music ?"})
 training_data.append({"class":"music", "sentence":"music"})
 training_data.append({"class":"music", "sentence":"I want music"})
 training_data.append({"class":"music", "sentence":"I wanna listen songs"})
+
+training_data.append({"class":"weather", "sentence":"What is the weather"})
+training_data.append({"class":"weather", "sentence":"What weather looks like ?"})
+training_data.append({"class":"weather", "sentence":"Weather"})
